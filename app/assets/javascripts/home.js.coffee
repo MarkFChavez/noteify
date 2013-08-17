@@ -37,4 +37,44 @@ jQuery ->
 		$("#e_account").modal 'hide'
 
 	
+	$('#in').on "click", (e) ->
+		e.preventDefault()
+		$('#sign_up').modal('show')
 
+	$('#in_up').on "click", (e) ->
+		e.preventDefault()
+		token = $('input[name=authenticity_token]').val()
+		username = $('#signuser_username').val()
+		email = $('#signuser_email').val()
+		password = $('#signuser_password').val()
+		confirm = $('#signuser_password_confirmation').val()
+		action = $('#new_sign_in').attr('action')
+		dashboard_path = $("#dashboard_url").val()
+		
+		$.ajax action,
+			type:"POST"
+			dataType: "json"
+			data: {
+				user: {
+					username:username
+					email:email
+					password:password
+					password_confirmation:confirm
+				}
+			}
+			success: (data) ->
+				window.location.href = dashboard_path
+			error: (data) ->
+				html_data = "<strong>Wew!!!</strong> Error Occured"
+				$('#result').removeAttr('class')
+				$('#result').attr('class','alert alert-error')
+				$('#result').html(html_data)
+			
+	$('#sign_close').on "click", (e) ->
+		e.preventDefault()
+		$('#sign_up').modal('hide');
+		
+	$('#forgot').on "click", (e) ->
+		e.preventDefault()
+		
+		alert("forgot")		

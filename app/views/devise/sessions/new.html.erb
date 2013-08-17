@@ -1,5 +1,5 @@
 <%= t('Login') %>
-
+<div class = "row-fluid" >
 <div class="span5 offset1">
 	<center>
 		<%= image_tag "logo.png", style:"margin-top:17%" %>
@@ -43,7 +43,6 @@
 				<% end -%>
 			</div>
 
-			<%= render "devise/shared/links" %>
 		<% end %>
 
 		<hr style="border-top:1px solid #007AB3;width:80%;margin:0 auto;margin-top:25%" />
@@ -54,10 +53,24 @@
 				<%= image_tag "twitter.png", style:"background-color:#0271BF;margin-left:3%" %>
 			</center>
 		</div>
+		<%= render "devise/shared/links" %>
 	</div>
 </div>
 
-
+			<div style = "clear:both"></div>	
+			
+			<div id="push"></div>
+	</div>
+	
+    <footer>
+		<div class = "row-fluid" style = "margin-top:5%">
+			<div style = "background-color:#007ab3;height:40px" class = "span12">
+			
+				<span style = "color:white" class = "span2 offset1">JAM &copy 2013</span>	
+				
+			</div>
+		</div>
+    </footer>
 
 <!-- modal -->
 <div id="error_account" class="modal hide fade">
@@ -95,3 +108,45 @@
 		<a href="#" class="btn btn-danger" id="error_closes">Close</a>
 	</div>
 </div>
+
+
+	<div id="sign_up" class="modal hide fade">
+		  <div class="modal-header" 
+			style = "background: #499bea; /* Old browsers */
+			background: -moz-linear-gradient(top, #499bea 0%, #207ce5 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#499bea), color-stop(100%,#207ce5)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, #499bea 0%,#207ce5 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, #499bea 0%,#207ce5 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, #499bea 0%,#207ce5 100%); /* IE10+ */
+			background: linear-gradient(to bottom, #499bea 0%,#207ce5 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 ); /* IE6-9 */
+			copy">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3><span style = "color:white">Sign Up!!!</span></h3>
+		  </div>
+		  <form accept-charset="UTF-8" action="/users" class="new_user" id="new_sign_in" method="post">
+			<div class="modal-body">
+					<div style = "width:90%;margin-left:5%;text-align:center">	
+						<div id="result" class="alert alert-info">
+							<strong>Note:</strong> All fields are required.
+						</div>
+					</div>				
+					<div >
+						<input type = "text" class = "offset1" autofocus = "autofocus" id = "signuser_username" style = "width:50%" name = "user[username]" size = "30" placeholder = "Username" />
+					</div>
+					<div>
+						<input placeholder = "Email Address" class = "offset1" id="signuser_email" name="user[email]" size="30" type="email" style = "width:50%"/>
+					</div>
+					<div>
+						<input placeholder = "Password" id="signuser_password" name="user[password]" size="30" type="password" class = "offset1" style = "width:50%" />
+					</div>
+					<div>
+						<input class = "offset1" style = "width:50%" placeholder = "Confirm Password" id="signuser_password_confirmation" name="user[password_confirmation]" size="30" type="password">
+					</div>
+			</div>	
+		  <div class="modal-footer">
+			<input type = "submit" id = "in_up" class = "btn btn-primary" value = "Sign Up" />
+			<a href="#" class="btn" id="sign_close">Close</a>
+		  </div>
+		 </form>
+	</div>
