@@ -1,20 +1,97 @@
 <%= t('Login') %>
 
-<h2>Sign in</h2>
+<div class="span5 offset1">
+	<center>
+		<%= image_tag "logo.png", style:"margin-top:17%" %>
+	</center>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<div class="span6">
+	<div class="span7 offset1" style="height:400px;background-color:#FFF">
+		<div class="row-fluid">
+			<div class="span12">
+				<center> <h2 style="color:#007AB3"> Sign In </h2> </center>
+			</div>
+		</div>
 
-  <div><%= f.label :email %><br />
-	<%= f.text_field :email, autofocus: true %></div>
+		<% if alert %>
+			<p style="color:red;text-align:center"> <%= alert %> </p>
+		<% end %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+		<% if notice %>
+			<p style="color:green;text-align:center"> <%= notice %> </p>
+		<% end %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+		<hr style="border-top:1px solid #007AB3; width:80%;margin:0 auto" />
+		
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			<div style="margin-top:5%;" class="offset2">
+				<%= f.text_field :email, autofocus: true, style:"height:30px;background-color:#007AB3;color:#FFF", placeholder:"Email",class:"span9" %>
+			</div>
 
-  <div><%= f.submit "Sign in", id:"sign" %></div>
-<% end %>
+			<input type="hidden" id="dashboard_url" value="<%= notes_url %>" />
 
-<%= render "devise/shared/links" %>
+			<div style="margin-top:5%;" class="offset2">
+				<%= f.password_field :password, style:"height:30px;background-color:#007AB3;color:#FFF", placeholder:"Password", class:"span9" %>
+			</div>
+
+			<div>
+				<%= f.submit "Sign In", id:"sign", class:"btn btn-primary pull-right", style:"margin-right:21%" %>
+				<% if devise_mapping.rememberable? -%>
+					<%= f.check_box :remember_me, style:"margin-left:20%" %> 
+					<%= link_to "Remember Me", "#", style:"margin-left:2%" %>
+				<% end -%>
+			</div>
+
+			<%= render "devise/shared/links" %>
+		<% end %>
+
+		<hr style="border-top:1px solid #007AB3;width:80%;margin:0 auto;margin-top:25%" />
+
+		<div style="margin-top:2%">
+			<center>
+				<%= image_tag "face.png", style:"background-color:#4C66A4" %>
+				<%= image_tag "twitter.png", style:"background-color:#0271BF;margin-left:3%" %>
+			</center>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- modal -->
+<div id="error_account" class="modal hide fade">
+	<div class="modal-header" style="background:#FF3019;background:-moz-linear-gradient(top, #FF3019 0%, #CF0404 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #FF3019), color-stop(100%, #CF0404));background:-webkit-linear-gradient(top,#FF3019 0%,#CF0404 100%);background: -o-linear-gradient(top, #FF3019 0%, #CF0404 100%);background: -ms-linear-gradient(top, #FF3019 0%, #CF0404 100%);background: linear-gradient(to bottom, #FF3019 0%, #CF0404 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF3019',endColorstr='#CF0404',GradientType=0);">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3><span style="color:#FFF"> Error  </span></h3>
+	</div>
+
+	<div class="modal-body">
+		<div id="xvalid">
+			<div id="success" class="alert alert-danger" align="left">
+				<strong>Oops!</strong> Invalid email and password
+			</div>
+		</div>
+	</div>
+
+	<div class="modal-footer">
+		<a href="#" class="btn btn-danger" id="error_close">Close</a>
+	</div>
+</div>
+
+<div id="e_account" class="modal hide fade">
+	<div class="modal-header" style="background:#FF3019;background:-moz-linear-gradient(top, #FF3019 0%, #CF0404 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #FF3019), color-stop(100%, #CF0404));background:-webkit-linear-gradient(top,#FF3019 0%,#CF0404 100%);background: -o-linear-gradient(top, #FF3019 0%, #CF0404 100%);background: -ms-linear-gradient(top, #FF3019 0%, #CF0404 100%);background: linear-gradient(to bottom, #FF3019 0%, #CF0404 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF3019',endColorstr='#CF0404',GradientType=0);">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3> <span style="color:#FFF"> Error </span> </h3>
+	</div>
+
+	<div class="modal-body">
+		<div id="valid">
+			<!-- dynamic content //-->
+		</div>
+	</div>
+
+	<div class="modal-footer">
+		<a href="#" class="btn btn-danger" id="error_closes">Close</a>
+	</div>
+</div>
