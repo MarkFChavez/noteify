@@ -5,7 +5,7 @@ class NotesController < ApplicationController
 
   def index
 	  @note = Note.new
-	  @notes = current_user.notes
+	  @unplaced_notes = current_user.notes.unplaced
 
 	  respond_to do |format|
 		format.html

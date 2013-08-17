@@ -1,7 +1,1 @@
 
-<%= div_for note, class:"bottom20" do %>
-	<%= note.title %> <br />
-	<blockquote> <%= note.content %> </blockquote>
-	<%= link_to "Edit", edit_note_path(note), class:"btn btn-primary btn-small" %> &nbsp; 
-	<%= link_to "Delete", note, method: :delete, confirm:"Delete this note?", class:"btn btn-danger btn-small" %>
-<% end %>
