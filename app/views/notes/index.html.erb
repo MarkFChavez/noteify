@@ -2,9 +2,9 @@
 <%= t('Dashboard') %>
 
 <div class="row-fluid">
-	<div class = "span2 profileContainer" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<div class = "span2 profileContainer" ondrop="drop(event)" ondragover="allowDrop(event)">
 				<div>
-					<img src = "img/axel.jpg" alt = "Photo" id = "avatar"><br/>
+					<%= g(current_user, 'img-circle', size:170) %>
 					Welcome <h5>Username</h5>!
 					<hr>
 				</div>
@@ -12,18 +12,69 @@
 					<ul>
 						<li><a href = "#" title = "Dashboard">Dashboard</li>
 						<li><a href = "#" title = "Edit Profile">Edit Profile</a></li>
-						<li><a href="#" title = "New Note">New Note</a></li>
+						<li><a id = "new_note_btn" href="#" title = "New Note">New Note</a></li>
+						<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 					</ul>
 					<img src="img/stickynote.png" id = "drag1" draggable = "true" ondragstart = "drag(event)">
 					<img src="img/stickynote.png" id = "drag2" draggable = "true" ondragstart = "drag(event)">
 				</div>
+			<div id="accordion2" class="accordion">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a href="#collapseOne" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle collapsed">
+                      NOTES
+                    </a>
+                  </div>
+                  <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
+                    <div class="accordion-inner">
+
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
 			</div>
 			
 			<div class = "span10">
 				<div class = "dashboard">
 					<div class = "span3 section1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-					<div class = "sapn3 section2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					<div class = "span3 section2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 					<div class = "span3 section3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 				</div>
 			</div>
+
+
 </div>
+
+	<div id="add_account" class="modal hide fade">
+		  <div class="modal-header" 
+			style = "background: #499bea; /* Old browsers */
+			background: -moz-linear-gradient(top, #499bea 0%, #207ce5 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#499bea), color-stop(100%,#207ce5)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, #499bea 0%,#207ce5 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, #499bea 0%,#207ce5 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, #499bea 0%,#207ce5 100%); /* IE10+ */
+			background: linear-gradient(to bottom, #499bea 0%,#207ce5 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 ); /* IE6-9 */
+			copy">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3><span style = "color:white">New Note</span></h3>
+		</div>
+
+		<%= form_for @note do |f| %>
+			<div class="modal-body">
+				<div id="result"></div>
+				<div class = "offset2">
+						<%= f.text_field :title, placeholder:"title", class:"input-xlarge" %>
+						<%= f.text_area :content, style:"height:100px;resize:none", placeholder:"content", class:"input-xlarge" %>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<%= f.submit "Save", class:"btn btn-primary", id:"save_note" %>
+				<a href="#" class="btn" id="single_close">Close</a>
+			</div>
+		<% end %>
+	</div>		
+

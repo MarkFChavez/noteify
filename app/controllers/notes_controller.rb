@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   layout "dashboard"
 
   def index
+	  @note = Note.new
 	  @notes = current_user.notes
 
 	  respond_to do |format|
