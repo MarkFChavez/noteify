@@ -1,2 +1,23 @@
-<h1>Notes#new</h1>
-<p>Find me in app/views/notes/new.html.erb</p>
+<%= t('New Note') %>
+
+<div class="row-fluid">
+	<div class="span12">
+		<div class="padding20">
+			<p class="lead"> Create a Note </p>
+
+			<%= form_for @note do |f| %>
+				<%= f.label :title %>
+				<%= f.text_field :title, placeholder:"Enter note title" %>
+	
+				<br />
+
+				<%= f.label :content %>
+				<%= f.text_area :content, rows:3, placeholder:"Write something" %>
+
+				<br />
+
+				<%= f.submit "Create", class:"btn" %>
+			<% end %>
+		</div>
+	</div>
+</div>

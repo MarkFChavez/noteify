@@ -5,10 +5,20 @@ class NotesController < ApplicationController
 
   def index
 	  @notes = current_user.notes
+
+	  respond_to do |format|
+		format.html
+		format.json { render json: @notes }
+	  end
   end
 
   def show
 	  @note = current_user.notes.find(params[:id])
+
+	  respond_to do |format|
+		format.html
+		format.json { render json: @note }
+	  end
   end
 
   def new
@@ -17,35 +27,64 @@ class NotesController < ApplicationController
 
   def create
 	  @note = current_user.notes.build(params[:note])
-
-	  if @note.save
-		redirect_to notes_path, notice:"You have created a note"
-	  else
-		render :new
+	
+	  respond_to do |format|
+		if @note.save
+			format.html { redirect_to notes_path, notice: "You have created a note" }
+			format.json do
+				render json: {result:"You have created a note", validation: 0}
+			end
+		else
+			format.html { render :new }
+			format.json do
+				render json: {result:"Unable to create note", validation: 1}
+			end
+		end
 	  end
   end
 
   def edit
 	  @note = current_user.notes.find(params[:id])
+
+	  respond_to do |format|
+		format.html
+		format.json { render json: @note }
+	  end
   end
 
   def update
 	  @note = current_user.notes.find(params[:id])
 
-	  if @note.update_attributes(params[:note])
-		redirect_to @note, notice:"You have updated a note"
-	  else
-		render :edit
+	  respond_to do |format|
+		if @note.update_attributes(params[:note])
+			format.html { redirect_to @note, notice:"You have updated a note" }
+			format.json do
+				render json: {result:"You have updated a note"}
+			end
+		else
+			format.html { render :edit }
+			format.json do
+				render json: {result:"Unable to update note"}
+			end
+		end
 	  end
   end
 
   def destroy
 	  @note = current_user.notes.find(params[:id])
 
-	  if @note.destroy
-		redirect_to notes_path, notice:"You have deleted a note"
-	  else
-		redirect_to @note, alert:"Oops! An error has occurred when deleting this note"
+	  respond_to do |format|
+		if @note.destroy
+			format.html { redirect_to notes_path, notice:"You have deleted a note" }
+			format.json do
+				render json: {result:"You have deleted a note"}
+			end
+		else
+			format.html { redirect_to @note, alert:"Unable to delete note" }
+			format.json do
+				render json:{result:"Unable to delete note"}
+			end
+		end
 	  end
   end
 end

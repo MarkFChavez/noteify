@@ -1,2 +1,13 @@
-<h1>Notes#show</h1>
-<p>Find me in app/views/notes/show.html.erb</p>
+<%= t('Show') %>
+
+<div class="row-fluid">
+	<div class="span12">
+		<div class="padding20">
+			<p class="lead"> <%= @note.title %> </p>
+
+			<div class="top20">
+				<%= @note.content %>
+			</div>
+		</div>
+	</div>
+</div>
