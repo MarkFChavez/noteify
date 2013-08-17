@@ -37,16 +37,29 @@
 							</div>
 						</li>
 					</ul>
-					<img src="img/stickynote.png" id = "drag1" draggable = "true" ondragstart = "drag(event)">
-					<img src="img/stickynote.png" id = "drag2" draggable = "true" ondragstart = "drag(event)">
+					<img src="img/stickynote.png" id = "drag1" class = "draggable">
+					<img src="img/stickynote.png" id = "drag1" class = "draggable">
+					<img src="img/stickynote.png" id = "drag1" class = "draggable">
+					<img src="img/stickynote.png" id = "drag1" class = "draggable">
 				</div>
               </div>
 
 			<div class = "span10">
-				<div class = "dashboard">
-					<div class = "span3 section1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-					<div class = "span3 section2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-					<div class = "span3 section3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div>
+					<div class = "span3" class = "dashHeader"><img src="img/priority.png" alt = "Priority"></div>
+					<div class = "span3" class = "dashHeader"><img src="img/reminder.png" alt = "Priority"></div>
+					<div class = "span3" class = "dashHeader"><img src="img/anything.png" alt = "Priority"></div>
+				</div>
+				<div>
+					<div class = "span3 section scrollbar" id = "style-6">
+						<div class="force-overflow" ></div>
+					</div>
+					<div class = "span3 section scrollbar" id = "style-6">
+						<div class="force-overflow" ></div>
+					</div>
+					<div class = "span3 section scrollbar" id = "style-6">
+						<div class="force-overflow" ></div>
+					</div>
 				</div>
 			</div>
 
