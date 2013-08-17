@@ -65,7 +65,9 @@
 
 		<%= form_for @note do |f| %>
 			<div class="modal-body">
-				<div id="result"></div>
+				<div id="result" class="alert alert-info">
+					<strong>Note:</strong> All fields are required. Content should be atleast 5 characters in length
+				</div>
 				<div class = "offset2">
 						<%= f.text_field :title, placeholder:"title", class:"input-xlarge" %>
 						<%= f.text_area :content, style:"height:100px;resize:none", placeholder:"content", class:"input-xlarge" %>

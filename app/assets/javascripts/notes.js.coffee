@@ -5,6 +5,10 @@
 jQuery ->
 	$("#new_note_btn").on "click", (e) ->
 		e.preventDefault()
+
+		html = "<strong>Note:</strong> All fields are required. Content should be atleast 5 characters in length"
+
+		$("#result").attr('class', 'alert alert-info').html(html)
 		$('#add_account').modal('show')
 
 
@@ -26,6 +30,8 @@ jQuery ->
 					title: title
 					content: content
 			success: (data) ->
+				$("#result").removeClass('alert').removeClass('alert-info')
+
 				if data != null
 					if data.validation == 0 #success
 						$("#result").html "<div class='alert alert-success'> #{data.result} </div>"
