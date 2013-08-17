@@ -1,0 +1,14 @@
+
+<%= t('Dashboard') %>
+
+<div class="row-fluid">
+	<div class="span12">
+		<div class="notes">
+			<p class="lead"> Notes </p>
+
+			<div class="top20">
+				<%= render(partial:"note", collection:@notes) || "No notes available" %>
+			</div>
+		</div>
+	</div>
+</div>

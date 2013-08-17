@@ -1,0 +1,13 @@
+<%= t('Dashboard') %>
+
+<div class="row-fluid">
+	<div class="span4">
+		<%= render "layous/profile" %>
+	</div>
+
+	<div class="span8">
+		<p class="lead"> My Notes </p>
+
+		<%= render(partial:"notes/note", collection:@notes) || "No notes available" %>
+	</div>
+</div>
