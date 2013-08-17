@@ -2,10 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-	background-color:#e5e6e6;
-	font-family:Myriad Pro;
+	background:#e5e6e6;
+	font-family: Arial;
+	font-size: 12px ;
+	color: #333;
 }
 
 .left-profile {
 	padding:20px;
+}
+
+h4, li a{
+	color: #007ab3;
+}
+a:hover{
+	text-decoration: none;
+}
+ul li{
+	list-style-type: none;
+	text-align: left;
+}
+
+.profileContainer {
+	background: #fff;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+}
+.profileContainer h5{
+	display: inline-block;
+}
+.profileContainer #avatar{
+	width: 170px;
+	height: 170px;
+	background: #d3d3d3;
+	border-radius: 85px;
+	margin: 0 auto;
+}
+.dashboard{
+  background: url('../img/corkBoard.png');
+  width: auto;
+  height: 600px;
+  overflow: auto; 
+  overflow-y: hidden;
+}
+.dashboard .section1,  .section2,  .section3{
+  margin-top: 13%;
+  width: 347px;
+  min-height: 460px;
+  display: inline-block;
+  text-align: center;
 }
