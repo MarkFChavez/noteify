@@ -7,7 +7,7 @@
 </div>
 
 <div class="span6">
-	<div class="span7 offset1" style="height:400px;background-color:#FFF">
+	<div class="span7 offset1" style="height:450px;background-color:#FFF">
 		<div class="row-fluid">
 			<div class="span12">
 				<center> <h2 style="color:#007AB3"> Sign In </h2> </center>
@@ -49,8 +49,12 @@
 
 		<div style="margin-top:2%">
 			<center>
-				<%= image_tag "face.png", style:"background-color:#4C66A4" %>
-				<%= image_tag "twitter.png", style:"background-color:#0271BF;margin-left:3%" %>
+				<a href = "http://www.facebook.com/groups/210514689072515/" id = "fb_image" data-toggle="tooltip" data-placement="left" title="" data-original-title="Like us On Facebook">	
+					<%= image_tag "face.png", style:"background-color:#4C66A4" %>
+				</a>	
+				<a href = "https://twitter.com/Noteify1" id = "twitter_image" data-toggle="tooltip" data-placement="right" title="" data-original-title="Follow us On Twitter">	
+					<%= image_tag "twitter.png", style:"background-color:#0271BF;margin-left:3%" %>
+				</a>
 			</center>
 		</div>
 		<%= render "devise/shared/links" %>
@@ -63,11 +67,9 @@
 	</div>
 	
     <footer>
-		<div class = "row-fluid" style = "margin-top:5%">
+		<div class = "row-fluid" style = "margin-top:1%">
 			<div style = "background-color:#007ab3;height:40px" class = "span12">
-			
 				<span style = "color:white" class = "span2 offset1">JAM &copy 2013</span>	
-				
 			</div>
 		</div>
     </footer>

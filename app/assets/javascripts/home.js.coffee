@@ -3,6 +3,23 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+
+	$('#fb_image').on "mouseover", (e) ->
+		e.preventDefault()
+		$(this).tooltip('show')
+
+	$('#fb_image').on "click", (e) ->
+		e.preventDefault()
+		window.open($(this).prop('href'))
+
+	$('#twitter_image').on "click", (e) ->
+		e.preventDefault()
+		window.open($(this).prop('href'))
+		
+	$('#twitter_image').on "mouseover", (e) ->
+		e.preventDefault()
+		$(this).tooltip('show')		
+		
 	$("#sign").on "click", (e) ->
 		e.preventDefault()
 		
@@ -72,9 +89,4 @@ jQuery ->
 			
 	$('#sign_close').on "click", (e) ->
 		e.preventDefault()
-		$('#sign_up').modal('hide');
-		
-	$('#forgot').on "click", (e) ->
-		e.preventDefault()
-		
-		alert("forgot")		
+		$('#sign_up').modal('hide');			
