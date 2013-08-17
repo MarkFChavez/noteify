@@ -1,6 +1,6 @@
 
 <div class="left-profile">
-	<%= image_tag "rails.png", class:"img-circle", style:"width:128px;height:128px" %>
+	<%= link_to g(current_user,"img-circle", size:128), "http://en.gravatar.com", target:"_blank" %>
 	<p> Welcome <%= current_user.username %> </p>
 
 	<div class="top20">
