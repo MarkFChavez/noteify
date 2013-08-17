@@ -2,13 +2,28 @@
 <%= t('Dashboard') %>
 
 <div class="row-fluid">
-	<div class="span12">
-		<div class="padding20">
-			<p class="lead"> Notes </p>
-
-			<div class="top20">
-				<%= render(partial:"note", collection:@notes) || "No notes available" %>
+	<div class = "span2 profileContainer" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<div>
+					<img src = "img/axel.jpg" alt = "Photo" id = "avatar"><br/>
+					Welcome <h5>Username</h5>!
+					<hr>
+				</div>
+				<div>
+					<ul>
+						<li><a href = "#" title = "Dashboard">Dashboard</li>
+						<li><a href = "#" title = "Edit Profile">Edit Profile</a></li>
+						<li><a href="#" title = "New Note">New Note</a></li>
+					</ul>
+					<img src="img/stickynote.png" id = "drag1" draggable = "true" ondragstart = "drag(event)">
+					<img src="img/stickynote.png" id = "drag2" draggable = "true" ondragstart = "drag(event)">
+				</div>
 			</div>
-		</div>
-	</div>
+			
+			<div class = "span10">
+				<div class = "dashboard">
+					<div class = "span3 section1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					<div class = "sapn3 section2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					<div class = "span3 section3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				</div>
+			</div>
 </div>
