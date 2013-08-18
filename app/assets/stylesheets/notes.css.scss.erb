@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-	background:url('../img/bg.jpg') no-repeat;
+  background: url("<%= asset_path("bg.jpg") %>");
   background-size: 100% 100%;
   font-family: Arial;
   font-size: 12px ;
@@ -76,10 +76,10 @@ li a:hover{
 }
 .tape{
   position: absolute;
-  left: 17%;
+  left: 10%;
 }
 .dashboard{
-  background: url('../img/corkBoard.png');
+  background: url("<%= asset_path("corkBoard.png") %>");
   width: 81%;
   height: 585px;
   margin-left: -10px;
