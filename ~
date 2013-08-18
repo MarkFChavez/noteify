@@ -1,0 +1,13 @@
+
+<%= div_for note, class:"draggable" do %>
+	<div class='each-note'>
+		<div style="padding:10px">
+			<%= image_tag "stickynote.png" %>
+			<%= note.title %>
+
+			<div class="top20">
+				<%= note.content %>
+			</div>
+		</div>
+	</div>
+<% end %>
