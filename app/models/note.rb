@@ -3,8 +3,10 @@ class Note < ActiveRecord::Base
 
   belongs_to :user
 
-  default_scope order("created_at DESC")
   scope :unplaced, where(category: nil)
+  scope :priority, where(category: "priority")
+  scope :important, where(category: "important")
+  scope :anything, where(category: "anything")
 
   validates :title, presence: true
   validates :content, presence: true

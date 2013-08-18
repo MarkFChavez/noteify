@@ -4,7 +4,9 @@ Noteify::Application.routes.draw do
   end
 
   resources :home
-  resources :notes
+  resources :notes do
+	  post 'update_category', :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

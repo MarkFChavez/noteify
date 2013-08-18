@@ -1,4 +1,12 @@
 
-<%= div_for note do %>
-	<%= note.title %>
+<%= div_for note, class:"draggable each-note", style:"margin-bottom:20px",for_update: update_category_note_path(note) do %>
+	<div style="padding:10px 5px 10px 5px;">
+		<div style="margin:auto;">
+			<p class="note-title" style="font-weight:bold;"> <%= note.title.capitalize %> </p>
+		</div>
+
+		<div class="note-content-foo top20" style="text-align:left;font-size:16px">
+			<%= note.content %>
+		</div>
+	</div>
 <% end %>
