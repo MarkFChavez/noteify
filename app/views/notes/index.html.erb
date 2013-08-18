@@ -1,10 +1,12 @@
 
 <%= t('Dashboard') %>
 
-<div class="container">
+<div class="container" style = "margin-top:50px;">
 	<div class = "span12">
+		<div class = "tape"><img src="img/tape.png"></div>
 			<div class = "span2 profileContainer scrollbar" id="style-7">
 				<div class="force-overflow">
+					<div id = "pin"></div>
 					<%= g(current_user, 'img-circle', size:170) %>
 					Welcome <h5> <%= current_user.username.upcase %> </h5>!
 					<hr>

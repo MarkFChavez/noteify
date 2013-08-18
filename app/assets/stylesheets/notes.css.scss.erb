@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-	background:#e5e6e6;
-	font-family: Arial;
-	font-size: 12px ;
-	color: #333;
+	background:url('../img/bg.jpg') no-repeat;
+  background-size: 100% 100%;
+  font-family: Arial;
+  font-size: 12px ;
+  color: #333;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #fff;
@@ -30,20 +31,42 @@ h4, li a{
 a:hover{
   text-decoration: none;
 }
+ul{
+  margin-left: 0px;
+}
 ul li{
   list-style-type: none;
   text-align: left;
+  padding:5px 0px;
+}
+li a{
+  padding:15px 0px;
+}
+li a:hover{
+  background-color: #007ab3;
+  color:#fff;
 }
 
 .profileContainer {
+  margin-top: 1%;
   background: #fff;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-
+  border: solid 3px #d59a62;
+  -webkit-box-shadow: -2px 1px 13px rgba(50, 50, 50, 0.49);
+  -moz-box-shadow:    -2px 1px 13px rgba(50, 50, 50, 0.49);
+  box-shadow:         -2px 1px 13px rgba(50, 50, 50, 0.49);
 }
 .profileContainer h5{
   display: inline-block;
+}
+.profileContainer #pin{
+  background: #e5e6e6;
+  border:solid 2px #333;
+  width: 15px;
+  height: 15px;
+  border-radius: 25px;
 }
 .profileContainer #avatar{
   width: 170px;
@@ -52,11 +75,19 @@ ul li{
   border-radius: 85px;
   margin: 0 auto;
 }
+.tape{
+  position: absolute;
+  left: 17%;
+}
 .dashboard{
-  background: url("<%= asset_path "corkBoard.png" %>");
-  width: auto;
-  min-height: 640px;
-  margin-left: 0px;
+  background: url('../img/corkBoard.png');
+  width: 81%;
+  height: 585px;
+  margin-left: -10px;
+  border: outset 6px #d59a62;
+  -webkit-box-shadow: 1px 1px 12px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    1px 1px 12px rgba(50, 50, 50, 0.5);
+  box-shadow:         1px 1px 12px rgba(50, 50, 50, 0.5);
 }
 .dashHeader{
   margin: 15px;
@@ -80,15 +111,18 @@ ul li{
 }
 .scrollbar
 {
-  margin-left: 0px;
+  margin-left: -30px;
+  margin-right: 20px;
   float: left;
-  height: 600px;
+  height: 400px;
   overflow-y: hidden;
   overflow: auto;
   margin-bottom: 25px;
 }
+#dash .scrollbar{
+  margin-left: 0px;
+}
 .dashboard .scrollbar{height: 450px;}
-
 .force-overflow
 {
   min-height: 600px;
