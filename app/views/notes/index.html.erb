@@ -10,8 +10,8 @@
 					<hr>
 				<div>
 					<ul class="nav nav-tabs nav-stacked">
-						<li><a href = "#" title = "Edit Profile">Edit Profile</a></li>
-						<li><a id = "new_note_btn" href="#" title = "New Note">Add Note</a></li>
+						<li> <%= link_to "Edit Profile", edit_user_registration_path %> </li>
+						<li> <%= link_to "Add Note", "#", id:"new_note_btn",title:"New Note" %> </li>
 						<li><%= link_to "Logout", destroy_user_session_path, method: :delete, confirm:"Logout?" %> </li>
 						<li class="top20"> 
 							<div class="accordion" id="accordion2">
@@ -97,6 +97,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
+				<input type="hidden" id="dashboard_path" value="<%= notes_url %>" />
 				<%= f.submit "Save", class:"btn btn-primary", id:"save_note" %>
 				<a href="#" class="btn" id="single_close">Close</a>
 			</div>

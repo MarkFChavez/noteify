@@ -21,6 +21,7 @@ jQuery ->
 		action = $("#new_note").attr 'action'
 		title = $("#note_title").val()
 		content = $("#note_content").val()
+		dashboard_path = $("#dashboard_path").val()
 
 		$.ajax action,
 			type:"POST"
@@ -35,6 +36,7 @@ jQuery ->
 				if data != null
 					if data.validation == 0 #success
 						$("#result").html "<div class='alert alert-success'> #{data.result} </div>"
+						window.url = dashboard_path
 					else
 						$("#result").html "<div class='alert alert-error'> #{data.result} </div>"
 				else
@@ -48,7 +50,8 @@ jQuery ->
 
 	$ ->
 	  $(".draggable").each ->
-	    $(this).draggable helper: "clone"
+	    $(this).draggable 
+	    	helper: "clone"
 
 	  $(".force-overflow").droppable(
 	    activeClass: "ui-state-hover"
