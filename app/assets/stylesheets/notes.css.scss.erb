@@ -7,60 +7,138 @@ body {
 	font-size: 12px ;
 	color: #333;
 }
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+}
 
 .left-profile {
 	padding:20px;
 }
 
 h4, li a{
-	color: #007ab3;
+  color: #007ab3;
 }
 a:hover{
-	text-decoration: none;
+  text-decoration: none;
 }
 ul li{
-	list-style-type: none;
-	text-align: left;
+  list-style-type: none;
+  text-align: left;
 }
 
 .profileContainer {
-	background: #fff;
-	border-radius: 10px;
-	padding: 20px;
-	text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+
 }
 .profileContainer h5{
-	display: inline-block;
+  display: inline-block;
 }
-.profileContainer {
-	
-	#avatar{
-		width: 170px;
-		height: 170px;
-		background: #d3d3d3;
-		border-radius: 85px;
-		margin: 0 auto;
-	}
-
-	a {
-		font-size:16px;
-	}
-
-	li {
-		margin-left:5%;
-	}
+.profileContainer #avatar{
+  width: 170px;
+  height: 170px;
+  background: #d3d3d3;
+  border-radius: 85px;
+  margin: 0 auto;
 }
 .dashboard{
-  background: url("<%= asset_path 'corkBoard.png' %>");
+  background: url('../img/corkBoard.png');
   width: auto;
-  height: 600px;
-  overflow: auto; 
-  overflow-y: hidden;
+  min-height: 640px;
+  margin-left: 0px;
 }
-.dashboard .section1,  .section2,  .section3{
-  margin-top: 13%;
-  width: 347px;
-  min-height: 460px;
+.dashHeader{
+  margin: 15px;
+}
+.dashboard .section{
   display: inline-block;
   text-align: center;
+  margin-left: 18px;
+}
+.dashboard .section .force-overflow{
+  min-height: 400px;
+}
+
+.dashboard .section img:last-child{
+  padding-bottom: 120px;
+}
+
+.dashboard .section .drop{
+  width: 245px;
+
+}
+.scrollbar
+{
+  margin-left: 0px;
+  float: left;
+  height: 600px;
+  overflow-y: hidden;
+  overflow: auto;
+  margin-bottom: 25px;
+}
+.dashboard .scrollbar{height: 450px;}
+
+.force-overflow
+{
+  min-height: 600px;
+}
+
+#style-6::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#style-6::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#style-6::-webkit-scrollbar-thumb
+{
+  background-color: #F90; 
+  background-image: -webkit-linear-gradient(45deg,
+                                            rgba(255, 255, 255, .2) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,
+                        transparent 75%,
+                        transparent)
+}
+
+#style-7::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+#style-7::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#style-7::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear,
+                     left bottom,
+                     left top,
+                     color-stop(0.44, rgb(122,153,217)),
+                     color-stop(0.72, rgb(73,125,189)),
+                     color-stop(0.86, rgb(28,58,148)));
 }

@@ -45,3 +45,24 @@ jQuery ->
 				$("#note_title").val('')
 				$("#note_content").val('')
 
+
+	$ ->
+	  $(".draggable").each ->
+	    $(this).draggable helper: "clone"
+
+	  $(".force-overflow").droppable(
+	    activeClass: "ui-state-hover"
+	    hoverClass: "ui-state-active"
+	    accept: ":not(.ui-sortable-helper)"
+	    drop: (event, ui) ->
+	      targetElem = $(this).attr("id")
+	      $(this).addClass "ui-state-highlight"
+	      if $(ui.draggable).hasClass("draggable-source")
+	        $(ui.draggable).clone().appendTo(this).removeClass "draggable-source"
+	      else
+	        $(ui.draggable).appendTo this
+	      console.log @id
+	  ).sortable
+	    items: "li:not(.placeholder)"
+	    sort: ->
+	      $(this).removeClass "ui-state-default"
