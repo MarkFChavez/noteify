@@ -11,7 +11,6 @@ jQuery ->
 		$("#result").attr('class', 'alert alert-info').html(html)
 		$('#add_account').modal('show')
 
-
 	$("#single_close").on "click", (e) ->
 		e.preventDefault()
 		$('#add_account').modal('hide')
@@ -61,6 +60,8 @@ jQuery ->
 	    	":not(.ui-sortable-helper)"
 	    drop: (event, ui) ->
 	      draggedElem = $(ui.draggable)
+	      elemId = draggedElem.attr('for_delete')
+	      
 	      category = $(@).data('category')
 	      for_update = draggedElem.attr('for_update')
 
@@ -71,6 +72,8 @@ jQuery ->
 	      else
 	        $(ui.draggable).appendTo(this)
 
+
+
 	      $.ajax for_update,
 	      	type:"POST"
 	      	dataType:"json"
@@ -78,7 +81,8 @@ jQuery ->
 	      		note:
 	      			category: category
 	      	success: (data) ->
-
+	      		html = "<div class='pull-right'><a rel='nofollow' href='/notes/#{elemId}' class='close' data-method='delete'>x</a></div>";
+	      		draggedElem.find('p').append(html)
 	      	error: (data) ->
 	      		alert 'error'
               

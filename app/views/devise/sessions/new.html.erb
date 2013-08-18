@@ -2,7 +2,7 @@
 <div class = "row-fluid" >
 <div class="span5 offset1">
 	<center>
-		<%= image_tag "logo.png", style:"margin-top:17%" %>
+		<%= image_tag "logo.png", style:"margin:17% 0; background: #fff; padding: 20px;" %>
 	</center>
 </div>
 
@@ -37,10 +37,7 @@
 
 			<div>
 				<%= f.submit "Sign In", id:"sign", class:"btn btn-primary pull-right", style:"margin-right:21%" %>
-				<% if devise_mapping.rememberable? -%>
-					<%= f.check_box :remember_me, style:"margin-left:20%" %> 
-					<%= link_to "Remember Me", "#", style:"margin-left:2%" %>
-				<% end -%>
+					
 			</div>
 
 		<% end %>
