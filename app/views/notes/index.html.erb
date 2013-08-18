@@ -29,6 +29,8 @@
 							</div>
 						</li>
 					</ul>
+
+					<%= image_tag "stickynote.png", id:"drag1", class:"draggable" %>
 					<img src="img/stickynote.png" id = "drag1" class = "draggable">
 					<img src="img/stickynote.png" id = "drag1" class = "draggable">
 					<img src="img/stickynote.png" id = "drag1" class = "draggable">
@@ -37,11 +39,20 @@
               </div>
 
 			<div class = "span10">
-				<div>
-					<div class = "span3" class = "dashHeader"><img src="img/priority.png" alt = "Priority"></div>
-					<div class = "span3" class = "dashHeader"><img src="img/reminder.png" alt = "Priority"></div>
-					<div class = "span3" class = "dashHeader"><img src="img/anything.png" alt = "Priority"></div>
+				<div class="dashboard">
+					<div class="span3" class="dashHeader">
+						<%= image_tag "priority.png", alt:"Priority" %>
+					</div>
+
+					<div class="span3" class="dashHeader">
+						<%= image_tag "reminder.png", alt:"Reminder" %>
+					</div>
+
+					<div class="span3" class="dashHeader">
+						<%= image_tag "anything.png", alt:"Anything" %>
+					</div>
 				</div>
+
 				<div>
 					<div class = "span3 section scrollbar" id = "style-6">
 						<div class="force-overflow" ></div>
