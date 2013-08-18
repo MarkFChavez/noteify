@@ -1,13 +1,13 @@
 
 <%= t('Dashboard') %>
 
-<div class="row-fluid">
-		<div class = "span2 profileContainer" ondrop="drop(event)" ondragover="allowDrop(event)">
-				<div>
+<div class="container">
+	<div class = "span12">
+			<div class = "span2 profileContainer scrollbar" id="style-7">
+				<div class="force-overflow">
 					<%= g(current_user, 'img-circle', size:170) %>
 					Welcome <h5> <%= current_user.username.upcase %> </h5>!
 					<hr>
-				</div>
 				<div>
 					<ul class="nav nav-tabs nav-stacked">
 						<li><a href = "#" title = "Edit Profile">Edit Profile</a></li>
@@ -36,19 +36,19 @@
 					<img src="img/stickynote.png" id = "drag1" class = "draggable">
 					<img src="img/stickynote.png" id = "drag1" class = "draggable">
 				</div>
-              </div>
-
-			<div class = "span10">
-				<div class="dashboard">
-					<div class="span3" class="dashHeader">
+			</div>
+		</div>
+			<div class = "span10 dashboard">
+				<div>
+					<div class="span3 dashHeader">
 						<%= image_tag "priority.png", alt:"Priority" %>
 					</div>
 
-					<div class="span3" class="dashHeader">
+					<div class="span3 dashHeader">
 						<%= image_tag "reminder.png", alt:"Reminder" %>
 					</div>
 
-					<div class="span3" class="dashHeader">
+					<div class="span3 dashHeader">
 						<%= image_tag "anything.png", alt:"Anything" %>
 					</div>
 				</div>
