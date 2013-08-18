@@ -22,15 +22,7 @@
 
 									<div id="collapseOne" class="accordion-body collapse">
 										<div class="accordion-inner">
-											<% if !@unplaced_notes.empty? %>
-												<% @unplaced_notes.each do |note| %>
-													<%= div_for note, class:"top5" do %>
-														<%= note.title.truncate(10) %> <i class="icon icon-hand-right"></i>
-													<% end %>
-												<% end %>
-											<% else %>
-												No notes.
-											<% end %>
+											<%= render(partial:"note",collection:@unplaced_notes) || "No notes." %>
 										</div>
 									</div>
 								</div>
