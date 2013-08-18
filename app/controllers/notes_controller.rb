@@ -7,6 +7,10 @@ class NotesController < ApplicationController
 	  @note = Note.new
 	  @unplaced_notes = current_user.notes.unplaced
 
+	  @priority_notes = current_user.notes.priority
+	  @important_notes = current_user.notes.important
+	  @anything_notes = current_user.notes.anything
+
 	  respond_to do |format|
 		format.html
 		format.json { render json: @notes }
@@ -88,4 +92,22 @@ class NotesController < ApplicationController
 		end
 	  end
   end
+
+  def update_category
+	@note = current_user.notes.find(params[:id])
+
+	respond_to do |format|
+		if @note.update_attributes(params[:note])
+			format.html { redirect_to notes_path, notice: "You have updated note" }
+			format.json do
+				render json: { result:0 }
+			end
+		else
+			format.html { redirect_to notes_path, alert: "Unable to update note" }
+			format.json do
+				render json: { result:1 }
+			end
+		end
+	end
+    end
 end

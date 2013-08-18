@@ -34,9 +34,8 @@ jQuery ->
 				$("#result").removeClass('alert').removeClass('alert-info')
 
 				if data != null
-					if data.validation == 0 #success
-						$("#result").html "<div class='alert alert-success'> #{data.result} </div>"
-						window.url = dashboard_path
+					if data.validation == 0
+						window.location.href = dashboard_path
 					else
 						$("#result").html "<div class='alert alert-error'> #{data.result} </div>"
 				else
@@ -54,18 +53,35 @@ jQuery ->
 	    	helper: "clone"
 
 	  $(".force-overflow").droppable(
-	    activeClass: "ui-state-hover"
-	    hoverClass: "ui-state-active"
-	    accept: ":not(.ui-sortable-helper)"
+	    activeClass: 
+	    	"ui-state-hover"
+	    hoverClass:
+	    	"ui-state-active"
+	    accept:
+	    	":not(.ui-sortable-helper)"
 	    drop: (event, ui) ->
-	      targetElem = $(this).attr("id")
-	      $(this).addClass "ui-state-highlight"
+	      draggedElem = $(ui.draggable)
+	      category = $(@).data('category')
+	      for_update = draggedElem.attr('for_update')
+
+	      $(ui.draggable).addClass "ui-state-highlight"
+
 	      if $(ui.draggable).hasClass("draggable-source")
 	        $(ui.draggable).clone().appendTo(this).removeClass "draggable-source"
 	      else
-	        $(ui.draggable).appendTo this
-	      console.log @id
-	  ).sortable
-	    items: "li:not(.placeholder)"
-	    sort: ->
-	      $(this).removeClass "ui-state-default"
+	        $(ui.draggable).appendTo(this)
+
+	      $.ajax for_update,
+	      	type:"POST"
+	      	dataType:"json"
+	      	data:
+	      		note:
+	      			category: category
+	      	success: (data) ->
+
+	      	error: (data) ->
+	      		alert 'error'
+              
+	      draggedElem.find(".note-title").css({fontSize:"20px"})
+	      draggedElem.find(".note-content-foo").show()
+	  )

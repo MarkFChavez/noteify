@@ -19,7 +19,7 @@
 							<div class="accordion" id="accordion2">
 								<div class="accordion-group">
 									<div class="accordion-heading">
-										<%= link_to "View Notes(#{@unplaced_notes.size})", "#collapseOne", class:"accordion-toggle", data:{toggle:"collapse",parent:"#accordion2"} %>
+										<%= link_to "View Notes (Toggle)", "#collapseOne", class:"accordion-toggle", data:{toggle:"collapse",parent:"#accordion2"} %>
 									</div>
 
 									<div id="collapseOne" class="accordion-body collapse">
@@ -31,8 +31,6 @@
 							</div>
 						</li>
 					</ul>
-
-					<%= image_tag "stickynote.png", id:"drag1", class:"draggable" %>
 				</div>
 			</div>
 		</div>
@@ -53,13 +51,58 @@
 
 				<div>
 					<div class = "span3 section scrollbar" id = "style-6">
-						<div class="force-overflow" ></div>
+						<div class="force-overflow" data-category="priority">
+							<% @priority_notes.each do |note| %>
+								<%= div_for note, class:"draggable each-note", style:"margin-bottom:20px", for_update: update_category_note_path(note) do %>
+									<div style="padding:10px 5px 10px 5px;">
+										<div style="margin:auto;">
+											<p class="note-title" style="font-weight:bold;"> <%= note.title.capitalize %> </p>
+										</div>
+
+										<div class="top20" style="text-align:left;font-size:16px">
+											<%= note.content %>
+										</div>
+									</div>
+								<% end %>
+							<% end %>
+						</div>
 					</div>
 					<div class = "span3 section scrollbar" id = "style-6">
-						<div class="force-overflow" ></div>
+						<div class="force-overflow" data-category="important">
+							<% @important_notes.each do |note| %>
+								<%= div_for note, class:"draggable each-note", style:"margin-bottom:20px", for_update: update_category_note_path(note) do %>
+									<div style="padding:10px 5px 10px 5px;">
+										<div style="margin:auto;">
+											<p class="note-title" style="font-weight:bold;"> <%= note.title.capitalize %> </p>
+										</div>
+
+										<div class="top20" style="text-align:left;font-size:16px">
+											<%= note.content %>
+										</div>
+									</div>
+								<% end %>
+							<% end %>
+
+						</div>
 					</div>
 					<div class = "span3 section scrollbar" id = "style-6">
-						<div class="force-overflow" ></div>
+						<div class="force-overflow" data-category="anything">
+							<% @anything_notes.each do |note| %>
+								<%= div_for note, class:"draggable each-note", style:"margin-bottom:20px", for_update: update_category_note_path(note) do %>
+									<div style="padding:10px 5px 10px 5px;">
+										<div style="margin:auto;">
+											<p class="note-title" style="font-weight:bold;"> <%= note.title.capitalize %> </p>
+										</div>
+
+										<div class="top20" style="text-align:left;font-size:16px">
+											<%= note.content %>
+										</div>
+									</div>
+								<% end %>
+							<% end %>
+
+
+						</div>
 					</div>
 				</div>
 			</div>
