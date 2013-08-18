@@ -7,7 +7,7 @@
 			<div class = "span2 profileContainer scrollbar" id="style-7">
 				<div class="force-overflow">
 					<div id = "pin"></div>
-					<%= g(current_user, 'img-circle', size:170) %>
+					<%= link_to g(current_user, 'img-circle', size:170), "http://en.gravatar.com", target:"_blank" %>
 					Welcome <h5> <%= current_user.username.upcase %> </h5>!
 					<hr>
 				<div>
